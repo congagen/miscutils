@@ -5,7 +5,6 @@ import os
 import random
 import struct
 
-
 def write_audio(file_path, audio_data, frame_count=0, num_chan=2, s_rate=44100):
     n_chan = max(min(num_chan, 1), 2)
     frame_count = len(audio_data) if frame_count == 0 else frame_count
