@@ -1,0 +1,10 @@
+{
+  "sample_rate": 44100,
+  "bit_depth": 24,
+  "notes": [36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84],
+  "velocities": [40, 85, 127],
+  "gate_duration_sec": 2.5,
+  "max_release_sec": 6.0,
+  "silence_threshold_db": -70.0,
+  "naming_format": "{patch_num}_{patch_name}_N{midi_note}_V{velocity}.wav"
+}
