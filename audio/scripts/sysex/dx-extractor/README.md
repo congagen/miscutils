@@ -1,6 +1,6 @@
 # DX Sample Extractor (`dx-extractor`)
 
-A C++ command-line tool built with JUCE that automatically batch-renders Yamaha DX synth SysEx (`.syx`) bank archives into sample sets (24-bit WAV) using a VST3 instrument host (e.g., [Dexed](https://as2df.asdf.io/dexed/)). Includes automatic SysEx patch name parsing, dynamic silence detection, and optional `.sfz` map generation.
+A C++ command-line tool built with JUCE that automatically batch-renders Yamaha DX synth SysEx (`.syx`) bank archives into sample sets (24-bit WAV) using a VST3 instrument host (e.g., [Dexed](https://asb2m10.github.io/dexed/)). Includes automatic SysEx patch name parsing, dynamic silence detection, and optional `.sfz` map generation.
 
 ---
 
