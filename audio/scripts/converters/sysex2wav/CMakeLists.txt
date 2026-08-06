@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(dx-extractor VERSION 1.0.0 LANGUAGES C CXX)
+project(sysex2wav VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -17,11 +17,11 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(JUCE)
 
-juce_add_console_app(dx-extractor PRODUCT_NAME "dx-extractor")
+juce_add_console_app(sysex2wav PRODUCT_NAME "sysex2wav")
 
-target_sources(dx-extractor PRIVATE src/main.cpp)
+target_sources(sysex2wav PRIVATE src/main.cpp)
 
-target_link_libraries(dx-extractor PRIVATE
+target_link_libraries(sysex2wav PRIVATE
     juce::juce_audio_processors
     juce::juce_audio_formats
     juce::juce_core
@@ -32,7 +32,7 @@ target_link_libraries(dx-extractor PRIVATE
     "-framework Cocoa"
 )
 
-target_compile_definitions(dx-extractor PRIVATE
+target_compile_definitions(sysex2wav PRIVATE
     JUCE_PLUGINHOST_VST3=1
     JUCE_PLUGINHOST_AU=1
 )

@@ -261,7 +261,7 @@ int main(int argc, char* argv[])
 
     if (posArgs.size() < 3)
     {
-        std::cout << "Usage: dx-extractor <path_to_vst3> <input_bank_dir> <output_sample_dir> [--sfz]\n";
+        std::cout << "Usage: sysex2wav <path_to_vst3> <input_bank_dir> <output_sample_dir> [--sfz]\n";
         return 1;
     }
 

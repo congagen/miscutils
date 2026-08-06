@@ -1,4 +1,4 @@
-# DX Sample Extractor (`dx-extractor`)
+# DX Sample Extractor (`sysex2wav`)
 
 A C++ command-line tool built with JUCE that automatically batch-renders Yamaha DX synth SysEx (`.syx`) bank archives into sample sets (24-bit WAV) using a VST3 instrument host (e.g., [Dexed](https://asb2m10.github.io/dexed/)). Includes automatic SysEx patch name parsing, dynamic silence detection, and optional `.sfz` map generation.
 
@@ -34,26 +34,26 @@ cmake --build build --config Release
 ```
 
 The compiled binary should be located at:
-* **macOS:** `./build/dx-extractor_artefacts/Release/dx-extractor`
+* **macOS:** `./build/sysex2wav_artefacts/Release/sysex2wav`
 
 ---
 
 ## Usage
 
 ```bash
-./dx-extractor <path_to_vst3> <input_bank_dir> <output_sample_dir> [--sfz]
+./sysex2wav <path_to_vst3> <input_bank_dir> <output_sample_dir> [--sfz]
 ```
 
 ### Examples
 
 **Standard WAV Sample Extraction:**
 ```bash
-./dx-extractor "/Library/Audio/Plug-Ins/VST3/Dexed.vst3" "./banks" "./samples_out"
+./sysex2wav "/Library/Audio/Plug-Ins/VST3/Dexed.vst3" "./banks" "./samples_out"
 ```
 
 **Extraction with `.sfz` File Generation:**
 ```bash
-./dx-extractor "/Library/Audio/Plug-Ins/VST3/Dexed.vst3" "./banks" "./samples_out" --sfz
+./sysex2wav "/Library/Audio/Plug-Ins/VST3/Dexed.vst3" "./banks" "./samples_out" --sfz
 ```
 
 ---
@@ -84,14 +84,14 @@ The current setup contains macOS-specific linking configurations. Adapting for *
 Replace platform-specific framework linkages with conditional blocks:
 
 ```cmake
-target_compile_definitions(dx-extractor PRIVATE
+target_compile_definitions(sysex2wav PRIVATE
     JUCE_PLUGINHOST_VST3=1
     JUCE_PLUGINHOST_AU=0
 )
 
 # Platform-specific framework/library linking
 if(APPLE)
-    target_link_libraries(dx-extractor PRIVATE
+    target_link_libraries(sysex2wav PRIVATE
         "-framework AudioUnit"
         "-framework CoreAudioKit"
         "-framework AudioToolbox"
@@ -101,7 +101,7 @@ if(APPLE)
 elseif(WIN32)
     # JUCE handles standard Windows dependencies via CMake targets automatically
 elseif(UNIX AND NOT APPLE)
-    target_link_libraries(dx-extractor PRIVATE
+    target_link_libraries(sysex2wav PRIVATE
         juce::juce_recommended_lto_flags
         # Ensure ALSA / X11 dev libraries are installed via package manager
     )
