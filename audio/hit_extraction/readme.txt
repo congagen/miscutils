@@ -48,8 +48,6 @@ If you prefer a quick compile without generating build files, pass the include p
 
 g++ -std=c++17 main.cpp -I./libs -o transient_extractor
 
-Here is the complete, self-contained documentation you can swap directly into your README.md:
-
 Usage
 Run the compiled executable from your terminal by passing the required input and output paths, along with optional configuration parameters:
 
